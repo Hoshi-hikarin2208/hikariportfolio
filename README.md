@@ -1,91 +1,65 @@
-# Renze Daneille P. Rivero — Portfolio
+# Hi, I'm Renze Rivero 👋
 
-Welcome to my personal portfolio! 👋
+I'm a Bachelor of Science in Information Technology (BSIT) student from the Philippines and an aspiring developer. I enjoy learning how websites, backend systems, games, and online worlds work by building projects of my own.
 
-I'm **Renze Daneille P. Rivero**, a **Bachelor of Science in Information Technology (BSIT) student** passionate about programming, web development, and creating things through code.
+I'm especially interested in frontend and backend development, game development, and Minecraft servers, mods, and plugins. This portfolio is a place to share what I'm learning, the projects I'm working on, and where I hope to go next.
 
-I enjoy building websites, experimenting with different technologies, developing small projects and games, and exploring new ideas. I also have experience handling Minecraft servers and creating custom plugins and mods to improve gameplay and add new features.
+## About this website
 
-## About Me
+This is my personal portfolio website. It introduces me, highlights my skills and projects, shares my education and experience, and provides ways to connect with me. It has a responsive layout, dark and light themes, animated details, and sections visitors can explore from the navigation.
 
-- 🎓 BSIT Student
-- 💻 Interested in Front-End and Back-End Development
-- 🌐 Passionate about Web Development
-- 🎮 Enjoys creating small projects and games
-- ⛏️ Experienced in handling Minecraft servers
-- 🔧 Creates Minecraft plugins and mods
-- 🚀 Always learning, experimenting, and improving my skills
+### How it works
 
-## Skills
+- **React** builds the page from reusable components and sections.
+- **Vite** runs the development server and bundles the site for production.
+- **Tailwind CSS** styles the layout and visual design.
+- **Framer Motion** powers animations and transitions.
+- **Lucide React** provides icons.
+- Most of the portfolio's content, including profile details, skills, projects, theme, and enabled sections, is configured in [`src/data/portfolio.js`](./src/data/portfolio.js).
+- Page sections are implemented in `src/sections/` and connected to their IDs through [`src/sections/index.js`](./src/sections/index.js).
+- Static files such as profile photos and the CV go in `public/`. They are copied into the production site when it is built.
+- GitHub Actions builds the site and publishes the generated `dist/` folder to GitHub Pages when changes are pushed to `main`.
 
-### Front-End Development
-- Building responsive and interactive websites
-- Creating user-friendly interfaces
-- Designing and developing personal and small-scale projects
+The browser downloads the built HTML, CSS, and JavaScript from GitHub Pages. JavaScript starts the React app, reads the portfolio content, and renders the page. The site uses relative asset paths so it can also load correctly at the repository's GitHub Pages URL.
 
-### Back-End Development
-- Developing application logic and functionality
-- Working with databases and server-side systems
-- Exploring APIs and backend technologies
+## Run it locally
 
-### Minecraft Development
-- Minecraft server management and configuration
-- Custom plugin development
-- Minecraft mod development
-- Server customization and gameplay enhancements
-
-### Other Interests
-- Game development
-- Small experimental projects
-- Programming challenges
-- Exploring new technologies
-
-## Projects
-
-I enjoy creating projects that allow me to learn, experiment, and turn ideas into working applications.
-
-Some of the things I work on include:
-
-- 🌐 Web applications and websites
-- 🎮 Small games and interactive projects
-- ⛏️ Minecraft plugins and modifications
-- 🛠️ Experimental tools and personal projects
-
-Check out my portfolio to see some of the projects I've worked on!
-
-## Connect With Me
-
-I'm always interested in connecting with fellow developers, learning from others, and sharing projects.
-
-- GitHub: VAELITH Hoshi-hikarin2208 https://github.com/Hoshi-hikarin2208
-- Facebook: Renze Riv https://www.facebook.com/fRENZEyriv
-- Discord: Vaelith totallynothikariyes 1445649011217399828
-- Email: renzerivero08@gmail.com
-
-## My Portfolio
-
-This website showcases my profile, skills, projects, and other information about me as a developer.
-
-### Run Locally
+You need Node.js and npm installed.
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-### Build for Production
+Open the local address Vite prints in the terminal. To build and preview the production version:
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## Tech Stack
+The production files are generated in `dist/`. You do not need to commit that folder; GitHub Actions builds it during deployment.
 
-This portfolio is built using modern web technologies and is continuously updated as I learn and develop new projects.
+## Update the portfolio
 
-## Goals
+Most content can be changed in [`src/data/portfolio.js`](./src/data/portfolio.js):
 
-My goal is to continue improving my programming skills, explore different areas of software development, and create projects that are both useful and enjoyable.
+- Edit your name, role, introduction, and profile image in `profile`.
+- Update the About section in `about`.
+- Add or change skill cards in `skills`.
+- Add projects in `projects`.
+- Reorder sections or hide one by setting `enabled: false` in `sections`.
+- Change the theme colors in `theme`.
 
-**Thanks for visiting my portfolio!** 🚀
+Put images in `public/images/` and refer to them with paths such as `images/profile.jpg`. Put a replacement CV in `public/cv/`, or update the `cvFile` setting to match its filename. Keep filenames and paths' letter casing the same; GitHub Pages is case-sensitive.
+
+To add a new page section, create a component in `src/sections/`, register it in `src/sections/index.js`, and add its ID to the `sections` list in `src/data/portfolio.js`.
+
+## Publish with GitHub Pages
+
+1. In the GitHub repository, open **Settings → Pages**.
+2. Set **Build and deployment → Source** to **GitHub Actions**.
+3. Push your changes to the `main` branch.
+4. Follow the workflow in the **Actions** tab. When deployment finishes, GitHub Pages will show your website URL.
+
+The workflow is defined in [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml).
